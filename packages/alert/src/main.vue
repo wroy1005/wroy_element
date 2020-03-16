@@ -15,6 +15,7 @@
       <i class="el-alert__icon" :class="[ iconClass, isBigIcon ]" v-if="showIcon"></i>
       <div class="el-alert__content">
         <span class="el-alert__title" :class="[ isBoldTitle ]" v-if="title || $slots.title">
+          <!-- 具名插槽 -->
           <slot name="title">{{ title }}</slot>
         </span>
         <p class="el-alert__description" v-if="$slots.default && !description"><slot></slot></p>
@@ -34,6 +35,7 @@
   export default {
     name: 'ElAlert',
 
+    // prop 的定义应该尽量详细，至少需要指定其类型。
     props: {
       title: {
         type: String,
@@ -60,6 +62,7 @@
       effect: {
         type: String,
         default: 'light',
+        // Prop 验证
         validator: function(value) {
           return ['light', 'dark'].indexOf(value) !== -1;
         }
