@@ -316,6 +316,7 @@ $--select-dropdown-border: solid 1px $--border-color-light !default;
 
 /* Alert
 -------------------------- */
+// 变量默认(!default)， 如果之前有值，使用之前的值，如果没有，则使用当前值。
 $--alert-padding: 8px 16px !default;
 /// borderRadius||Border|2
 $--alert-border-radius: $--border-radius-base !default;

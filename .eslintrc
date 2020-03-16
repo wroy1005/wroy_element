@@ -1,16 +1,25 @@
 {
+  // 允许自定义的全局变量
   "globals": {
     "ga": true,
     "chrome": true
   },
+  // 设置非js文件中的js规则
   "plugins": ["html", "json"],
+  // 规则继承
   "extends": "elemefe",
+  // 设置规则
   "rules": {
+    // 禁用特定的全局变量
     "no-restricted-globals": ["error", "event", "fdescribe"]
   },
+  // 解析ECMA的配置
   "parserOptions": {
+    // 默认设置为 3，5（默认）， 你可以使用 6、7、8、9 或 10 来指定你想要使用的 ECMAScript 版本。
     "ecmaVersion": 6,
+    // 这是个对象，表示你想使用的额外的语言特性
     "ecmaFeatures": {
+      // 启用 JSX
       "jsx": true
     }
   }

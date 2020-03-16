@@ -1,4 +1,10 @@
 <template>
+  <!-- 
+    增加过渡效果。
+    参见https://vuejs.bootcss.com/guide/transitions.html#%E8%BF%87%E6%B8%A1%E7%9A%84%E7%B1%BB%E5%90%8D
+    .el-alert-fade-enter{}
+    .el-alert-fade-leave-active{}
+   -->
   <transition name="el-alert-fade">
     <div
       class="el-alert"

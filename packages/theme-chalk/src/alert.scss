@@ -1,8 +1,11 @@
+// @import 用于在SCSS文件中导入文件的语法
 @import "mixins/mixins";
 @import "common/var";
 
+// @include 指令可以将混入（mixin）引入到文档中。
 @include b(alert) {
   width: 100%;
+  // Sass 变量使用 $ 符号
   padding: $--alert-padding;
   margin: 0;
   box-sizing: border-box;
