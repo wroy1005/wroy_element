@@ -18,6 +18,7 @@
           <!-- 具名插槽 -->
           <slot name="title">{{ title }}</slot>
         </span>
+        <!-- 使用 $props.description 或者 $slots.default -->
         <p class="el-alert__description" v-if="$slots.default && !description"><slot></slot></p>
         <p class="el-alert__description" v-if="description && !$slots.default">{{ description }}</p>
         <i class="el-alert__closebtn" :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }" v-show="closable" @click="close()">{{closeText}}</i>
