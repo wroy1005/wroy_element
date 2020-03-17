@@ -7,6 +7,8 @@
     :aria-expanded="suggestionVisible"
     :aria-owns="id"
   >
+    
+    <!-- v-bind 通过 $props 将父组件的 props 一起传给子组件 -->
     <el-input
       ref="input"
       v-bind="[$props, $attrs]"
@@ -19,6 +21,7 @@
       @keydown.enter.native="handleKeyEnter"
       @keydown.native.tab="close"
     >
+      <!-- 透传给input的prepend -->
       <template slot="prepend" v-if="$slots.prepend">
         <slot name="prepend"></slot>
       </template>
@@ -57,6 +60,8 @@
   </div>
 </template>
 <script>
+  // npm install throttle-debounce --save
+  // debounce(300, () => { Debounced function });
   import debounce from 'throttle-debounce/debounce';
   import ElInput from 'element-ui/packages/input';
   import Clickoutside from 'element-ui/src/utils/clickoutside';
@@ -102,6 +107,7 @@
       minlength: Number,
       autofocus: Boolean,
       fetchSuggestions: Function,
+      // 是否在输入框 focus 时显示建议列表
       triggerOnFocus: {
         type: Boolean,
         default: true
@@ -114,6 +120,7 @@
       prefixIcon: String,
       suffixIcon: String,
       label: String,
+      // 获取输入建议的去抖延时
       debounce: {
         type: Number,
         default: 300
@@ -189,6 +196,7 @@
       handleChange(value) {
         this.$emit('input', value);
         this.suggestionDisabled = false;
+        
         if (!this.triggerOnFocus && !value) {
           this.suggestionDisabled = true;
           this.suggestions = [];
@@ -264,6 +272,7 @@
       }
     },
     mounted() {
+      // debounce(300, () => { Debounced function });
       this.debouncedGetData = debounce(this.debounce, this.getData);
       this.$on('item-click', item => {
         this.select(item);
