@@ -7,6 +7,7 @@
     :aria-expanded="suggestionVisible"
     :aria-owns="id"
   >
+  <!-- .native 在根元素上直接监听一个原生事件 -->
     <el-input
       ref="input"
       v-bind="[$props, $attrs]"
