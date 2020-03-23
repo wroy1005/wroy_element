@@ -7,8 +7,8 @@
     :aria-expanded="suggestionVisible"
     :aria-owns="id"
   >
-    
     <!-- v-bind 通过 $props 将父组件的 props 一起传给子组件 -->
+    <!-- .native 在根元素上直接监听一个原生事件 -->
     <el-input
       ref="input"
       v-bind="[$props, $attrs]"
