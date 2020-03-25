@@ -1,4 +1,5 @@
 <template>
+<!-- 内置组件，提供过渡效果 @after-leave是内置事件监听 -->
   <transition name="el-zoom-in-top" @after-leave="doDestroy">
     <div
       v-show="showPopper"
@@ -67,6 +68,7 @@
     },
 
     created() {
+      // showPopper 使用 v-show 指令
       this.$on('visible', (val, inputWidth) => {
         this.dropdownWidth = inputWidth + 'px';
         this.showPopper = val;
